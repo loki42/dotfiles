@@ -52,3 +52,18 @@
 [submodule "_vim/bundle/solarized"]
 	path = _vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "_vim/bundle/easymotion"]
+	path = _vim/bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion
+[submodule "_vim/bundle/javascript"]
+	path = _vim/bundle/javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "_vim/bundle/vim-commentary"]
+	path = _vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "_vim/bundle/vim-repeat"]
+	path = _vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "_vim/bundle/vim-scmdiff"]
+	path = _vim/bundle/vim-scmdiff
+	url = https://github.com/ghewgill/vim-scmdiff
