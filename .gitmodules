@@ -67,3 +67,9 @@
 [submodule "_vim/bundle/vim-scmdiff"]
 	path = _vim/bundle/vim-scmdiff
 	url = https://github.com/ghewgill/vim-scmdiff
+[submodule "_vim/bundle/autoclose"]
+	path = _vim/bundle/autoclose
+	url = https://github.com/andrewle/vim-autoclose.git
+[submodule "_vim/bundle/vimwiki"]
+	path = _vim/bundle/vimwiki
+	url = https://github.com/vim-scripts/vimwiki.git
