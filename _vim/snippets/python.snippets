@@ -1,2 +1,12 @@
 snippet pdb
 	import pdb; pdb.set_trace()
+# cherrypy exposed method
+snippet @cherrypy
+	@cherrypy.expose
+	def ${1:mname}(self, te_key, ${2:arg}):
+		${3:pass}
+		return json.dumps(True)
+snippet db_wrap
+	with self.db_wrap() as (conn, cur, dict_cur):
+		${1:pass}
+

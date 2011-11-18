@@ -59,6 +59,7 @@ set hidden
 nnoremap ' `
 nnoremap ` '
 set history=1000
+set winheight=40
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
@@ -66,6 +67,15 @@ command! W :w
 " sudo write this
 cmap W! w !sudo tee % >/dev/null
 
+" remap arrow keys
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 " Toggle the tasklist
 map <leader>td <Plug>TaskList
@@ -96,6 +106,8 @@ nmap <leader>cc :cclose<CR>
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
+" softbol
+imap <home> <esc>^i
 " ctrl-jklm  changes to that split
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -110,7 +122,7 @@ imap <C-W> <C-O><C-W>
 map <leader>n :NERDTreeToggle<CR>
 
 " Run command-t file search
-map <leader>f :CommandT<CR>
+map <leader><leader> :CommandT<CR>
 " Ack searching
 nmap <leader>a <Esc>:Ack!
 
@@ -128,11 +140,34 @@ nnoremap <leader><space> :nohlsearch<cr>
 " vimgrep and display in quickfix window
 nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
+function! MarkWindowSwap()
+    let g:markedWinNum = winnr()
+endfunction
+
+function! DoWindowSwap()
+    "Mark destination
+    let curNum = winnr()
+    let curBuf = bufnr( "%" )
+    exe g:markedWinNum . "wincmd w"
+    "Switch to source and shuffle dest->source
+    let markedBuf = bufnr( "%" )
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' curBuf
+    "Switch to dest and shuffle source->dest
+    exe curNum . "wincmd w"
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' markedBuf 
+endfunction
+
+nmap <silent> <leader>ms :call MarkWindowSwap()<CR>
+nmap <silent> <leader>mp :call DoWindowSwap()<CR>
+
 " Fast saving, conflicts with EasyMotion
 " nmap <leader>w :w!<cr>
 
 " start easy motion, no leareder Key
-"let g:EasyMotion_leader_key = '<Leader>m'
+noremap r .
+let g:EasyMotion_leader_key = '.'
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================
@@ -167,7 +202,9 @@ runtime macros/matchit.vim
 " C: 8 spaces (pre-existing files) or 4 spaces (new files)
 syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
+filetype plugin on
 filetype plugin indent on     " enable loading indent file for filetype
+set nosmartindent
 set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -196,6 +233,7 @@ au BufNewFile *.c,*.cpp,*.h set shiftwidth=4
 " For the amount of space used for a new tab use shiftwidth.
 " Python: 4
 " C: 4
+set softtabstop=4 " makes the spaces feel like real tabs
 set tabstop=4
 au BufRead,BufNewFile *py,*pyw,*.c,*.cpp,*.h set tabstop=4
 
@@ -222,14 +260,6 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.cpp,*.h match BadWhitespace /\s\+$/
 " C: 79
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h set textwidth=179
 
-" Turn off settings in 'formatoptions' relating to comment formatting.
-" - c : do not automatically insert the comment leader when wrapping based on
-"    'textwidth'
-" - o : do not insert the comment leader when using 'o' or 'O' from command mode
-" - r : do not insert the comment leader when hitting <Enter> in insert mode
-" Python: not needed
-" C: prevents insertion of '*' at the beginning of every line in a comment
-au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
 
 " Use UNIX (\n) line endings.
 " Only used for new files so as to not force existing files to change their
@@ -260,38 +290,21 @@ syntax on
 set wildmenu
 set wildmode=longest:full
 set wildignore=*.pyc
-
-
-" Automatically indent based on file type: ``
-filetype indent on
-" Keep indentation level from previous line: ``
-set autoindent
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class 
-autocmd BufRead *.c,*.cpp set smartindent cinwords=if,else,for,while,class,switch,struct
-
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
 
-inoremap # #
-" ft-python-omni
-" setlocal omnifunc=ft-python-omni
-filetype plugin on
+"inoremap # #
 "setlocal omnifunc=syntaxcomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 highlight Pmenu guibg=brown gui=bold
 colorscheme mustang
 set guifont=Akkurat-Mono
-"autocmd FileType python compiler pylint
-"let g:pylint_onwrite = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Improved syntax
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Code completion
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+" remove toolbar
+set guioptions-=T
+" and the scroll bars
+set guioptions-=L
+set guioptions-=r
 
 let g:pyflakes_use_quickfix = 0
 let g:sql_type_default = 'plsql'
