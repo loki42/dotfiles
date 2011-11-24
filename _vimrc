@@ -76,7 +76,7 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
-
+map ; :
 " Toggle the tasklist
 map <leader>td <Plug>TaskList
 
@@ -224,11 +224,11 @@ setlocal hlsearch
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
 set grepprg=ack-grep          " replace the default grep program with ack
+au FileType python set omnifunc=pythoncomplete#Complete
 
 au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
 au BufRead *.c,*.cpp,*.h set shiftwidth=4
 au BufNewFile *.c,*.cpp,*.h set shiftwidth=4
-
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
 " Python: 4
@@ -297,6 +297,7 @@ set foldlevel=99            " don't fold by default
 "setlocal omnifunc=syntaxcomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 highlight Pmenu guibg=brown gui=bold
 colorscheme mustang
 set guifont=Akkurat-Mono
