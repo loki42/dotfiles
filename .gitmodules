@@ -61,9 +61,6 @@
 [submodule "_vim/bundle/vim-scmdiff"]
 	path = _vim/bundle/vim-scmdiff
 	url = https://github.com/ghewgill/vim-scmdiff
-[submodule "_vim/bundle/autoclose"]
-	path = _vim/bundle/autoclose
-	url = https://github.com/andrewle/vim-autoclose.git
 [submodule "_vim/bundle/vimwiki"]
 	path = _vim/bundle/vimwiki
 	url = https://github.com/vim-scripts/vimwiki.git
@@ -82,3 +79,9 @@
 [submodule "_vim/bundle/snipmate-snippets"]
 	path = _vim/bundle/snipmate-snippets
 	url = https://github.com/honza/snipmate-snippets.git
+[submodule "_vim/bundle/delimitmate"]
+	path = _vim/bundle/delimitmate
+	url = git://github.com/Raimondi/delimitMate.git
+[submodule "_vim/bundle/tagbar"]
+	path = _vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
