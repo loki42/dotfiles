@@ -300,7 +300,7 @@ set completeopt=menuone,longest,preview
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 highlight Pmenu guibg=brown gui=bold
 colorscheme mustang
-set guifont=Akkurat-Mono
+set guifont=Akkurat-Mono\ 9
 " remove toolbar
 set guioptions-=T
 " and the scroll bars

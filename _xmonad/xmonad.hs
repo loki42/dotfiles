@@ -1,6 +1,8 @@
+-- Loki Davison's xmonad config
 import XMonad
 
-main = xmonad defaultConfig
-    { modMask = mod4Mask -- user Super instead of Alt
-    , terminal = "urxvt"
-    }
+main = xmonad $ defaultConfig
+    { borderWidth        = 1
+    , terminal           = "/usr/bin/konsole"
+    , normalBorderColor  = "#000000"
+    , focusedBorderColor = "#cd8b00" }
