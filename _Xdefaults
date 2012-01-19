@@ -1,69 +1,66 @@
-xterm*background: black
-xterm*foreground: white
+Xcursor.theme:    Vanilla-DMZ-AA
 
-URxvt.buffered:         true
-URxvt.background:       black
-URxvt.foreground:       white
-URxvt.cursorColor:      green
+!urxvt color scheme:
+
+URxvt*background: #2B2B2B
+URxvt*foreground: #DEDEDE
+
+URxvt*colorUL: #86a2b0
+
+! black
+URxvt*color0  : #2E3436
+URxvt*color8  : #555753
+! red
+URxvt*color1  : #CC0000
+URxvt*color9  : #EF2929
+! green
+URxvt*color2  : #4E9A06
+URxvt*color10 : #8AE234
+! yellow
+URxvt*color3  : #C4A000
+URxvt*color11 : #FCE94F
+! blue
+URxvt*color4  : #3465A4
+URxvt*color12 : #729FCF
+! magenta
+URxvt*color5  : #75507B
+URxvt*color13 : #AD7FA8
+! cyan
+URxvt*color6  : #06989A
+URxvt*color14 : #34E2E2
+! white
+URxvt*color7  : #D3D7CF
+URxvt*color15 : #EEEEEC
+
+!urxvt fonts: 
+
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:dpi=96:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:dpi=96:antialias=true:hinting=true
+
+!urxvt extensions:
+
 URxvt.perl-ext-common:  default,matcher
-URxvt.urlLauncher:      /usr/bin/chromium
-URxvt.matcher.button:   1
-URxvt.scrollBar:        false
+!,tabbedex
 
-! urxvt defaults:
-! color0       (black)            = Black
-! color1       (red)              = Red3
-! color2       (green)            = Green3
-! color3       (yellow)           = Yellow3
-! color4       (blue)             = Blue3
-! color5       (magenta)          = Magenta3
-! color6       (cyan)             = Cyan3
-! color7       (white)            = AntiqueWhite
-! color8       (bright black)     = Grey25
-! color9       (bright red)       = Red
-! color10      (bright green)     = Green
-! color11      (bright yellow)    = Yellow
-! color12      (bright blue)      = Blue
-! color13      (bright magenta)   = Magenta
-! color14      (bright cyan)      = Cyan
-! color15      (bright white)     = White
+!enabling clickable links:
 
-! Black
-!URxvt.color1:          Black
-! Red
-URxvt.color1:           brown2
-! Green
-URxvt.color2:           SpringGreen2
-! Yellow
-URxvt.color3:           yellow2
-! Blue
-URxvt.color4:           DeepSkyBlue2
-! Magenta
-URxvt.color5:           magenta2
-! Cyan
-URxvt.color6:           DarkSlateGray1
-! White
-URxvt.color7:           MintCream
-! Bright black
-!URxvt.color8:          Grey25
-! Bright red
-URxvt.color9:           firebrick1
-! Bright green
-URxvt.color10:          SpringGreen1
-! Bright yellow
-URxvt.color11:          yellow1
-! Bright blue
-URxvt.color12:          DeepSkyBlue1
-! Bright magenta
-URxvt.color13:          magenta1
-! Bright cyan
-URxvt.color14:          cyan1
-! Bright white
-!URxvt.color15:         White
+URxvt.urlLauncher:      /usr/bin/firefox
+URxvt.matcher.button:   1 
 
-! Alternatives
-! Blue: lighter (looks closer to cyan, but it is an option if deepsky is too
-! dark to read (it might be a good idea to make symlinks green))
-!URxvt.color4:          SteelBlue2
-!URxvt.color12:         SteelBlue1
-!URxvt.color6:          cyan1
+!urxvt scrolling options and cursor style:
+
+URxvt*saveLines: 12000
+URxvt*scrollstyle:plain
+URxvt*scrollBar: false
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: true
+
+! urxvt tabs settings:
+
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 2
+URxvt.tabbed.tab-bg: 8
+URxvt.tabbed.autohide:  yes
+URxvt.tabbed.new-button:  no
+URxvt.tabbed.title: yes
