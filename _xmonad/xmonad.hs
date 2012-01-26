@@ -2,9 +2,10 @@
 import XMonad
 import XMonad.Actions.WindowBringer
 import XMonad.Util.EZConfig
+import XMonad.Hooks.EwmhDesktops
 
-main = xmonad $ defaultConfig
-    { borderWidth        = 1
+main = xmonad $ ewmh defaultConfig
+    { borderWidth        = 2
     , terminal           = "/usr/bin/urxvt -pe tabbed"
     , normalBorderColor  = "#000000"
     , focusedBorderColor = "#00bb00" }
@@ -12,3 +13,5 @@ main = xmonad $ defaultConfig
 	[ ("M-g", gotoMenu)
     , ("M-b", bringMenu)
 	]
+	`additionalKeys`
+	[ ((0, xK_Menu), spawn "easyxmotion.py")]
