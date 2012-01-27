@@ -14,4 +14,4 @@ main = xmonad $ ewmh defaultConfig
     , ("M-b", bringMenu)
 	]
 	`additionalKeys`
-	[ ((0, xK_Menu), spawn "easyxmotion.py")]
+	[ ((0, xK_Menu), spawn "easyxmotion.py --font '-monotype-arial-bold-r-normal--45-0-0-0-p-0-iso8859-15'")]
