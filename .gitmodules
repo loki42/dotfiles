@@ -82,3 +82,21 @@
 [submodule "_vim/bundle/tagbar"]
 	path = _vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+[submodule "_vim/bundle/python"]
+	path = _vim/bundle/python
+	url = git://github.com/vim-scripts/python.vim.git
+[submodule "_vim/bundle/chapa"]
+	path = _vim/bundle/chapa
+	url = git://github.com/alfredodeza/chapa.vim.git
+[submodule "_vim/bundle/vim-intent-object"]
+	path = _vim/bundle/vim-intent-object
+	url = git://github.com/michaeljsmith/vim-indent-object.git
+[submodule "_vim/bundle/gitv"]
+	path = _vim/bundle/gitv
+	url = git://github.com/gregsexton/gitv.git
+[submodule "_vim/bundle/vim-space"]
+	path = _vim/bundle/vim-space
+	url = https://github.com/spiiph/vim-space
+[submodule "_vim/bundle/vim-powerline"]
+	path = _vim/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
